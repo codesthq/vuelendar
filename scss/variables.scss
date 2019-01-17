@@ -1,0 +1,19 @@
+//
+// Base colors variables
+//
+$vl-primary: #c83f3a !default;
+$vl-white: #FFF !default;
+$vl-black: #3e3a4e !default;
+$vl-gray-1: #b5b5b5 !default;
+$vl-gray-2: #f6f6f6 !default;
+
+//
+// Specific colors for stuff
+//
+$vl-calendar-text-color: $vl-black !default;
+$vl-calendar-bg-color: $vl-gray-2 !default;
+
+$vl-weekday-text-color: $vl-primary !default;
+
+$vl-selected-day-bg-color: $vl-primary !default;
+$vl-selected-day-text-color: $vl-white !default;

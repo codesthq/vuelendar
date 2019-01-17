@@ -1,0 +1,42 @@
+{
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "rules": {
+    "indent": [2, 2],
+    "quotes": [2, "single"],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "never"],
+    "camelcase": 0,
+    "max-statements-per-line": [2, { "max": 1 }],
+    "object-shorthand": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "vue/require-default-prop": false,
+    "arrow-body-style": ["error", "as-needed"],
+    "mocha/no-exclusive-tests": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "keyword-spacing": "error",
+    "vue/order-in-components": ["error", {
+      "order": [
+        "extends",
+        "name",
+        "model",
+        "mixins",
+        "components",
+        "props",
+        "data",
+        "computed",
+        "methods",
+        "watch",
+        "LIFECYCLE_HOOKS"
+      ]
+    }]
+  },
+  "plugins": ["mocha"],
+  "extends": ["eslint:recommended", "plugin:vue/strongly-recommended"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "mocha": true
+  }
+}

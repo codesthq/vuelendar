@@ -1,0 +1,72 @@
+@import 'variables';
+
+.vl-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vl-calendar-month {
+  padding: 0 20px;
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__week-day {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 14%;
+    text-align: center;
+    color: $vl-weekday-text-color;
+    font-size: 12px;
+  }
+
+  &__day {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+    cursor: pointer;
+    width: 14%;
+    height: 24px;
+
+    @for $i from 1 through 6 {
+      &--offset-#{$i} {
+        margin-left: calc(#{$i} * 14%);
+      }
+    }
+
+    &.disabled {
+      color: $vl-gray-1;
+      pointer-events: none;
+
+      &--first {
+        border-top-left-radius: 14px;
+        border-bottom-left-radius: 14px;
+      }
+
+      &--last {
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 14px;
+      }
+    }
+
+    &.selected {
+      background: $vl-selected-day-bg-color;
+      color: $vl-selected-day-text-color;
+      font-weight: 800;
+
+      &--first {
+        border-top-left-radius: 14px;
+        border-bottom-left-radius: 14px;
+      }
+
+      &--last {
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 14px;
+      }
+    }
+  }
+}

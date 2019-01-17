@@ -1,0 +1,63 @@
+{
+  "name": "vuelendar",
+  "version": "1.0.0",
+  "description": "Simple and clean calendar written in Vue.js",
+  "scripts": {
+    "test:unit": "jest",
+    "test:e2e": "mocha ./test/e2e/test-install.js --timeout 15000",
+    "lint-js": "eslint . --ext js,vue",
+    "lint-scss": "sass-lint -v -f compact"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesthq/vuelendar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codesthq/vuelendar/issues"
+  },
+  "files": [
+    "components/**/*.*",
+    "scss/**/*.*",
+    "utils/**/*.*"
+  ],
+  "homepage": "https://github.com/codesthq/vuelendar#readme",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.28",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.12.1",
+    "eslint-plugin-mocha": "^5.2.1",
+    "eslint-plugin-vue": "^5.1.0",
+    "execa": "^1.0.0",
+    "jest": "^23.6.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.3",
+    "sass-lint": "^1.12.1",
+    "sinon": "^7.2.3",
+    "vue-jest": "^3.0.2",
+    "vue-template-compiler": "^2.5.22"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/lib/$1"
+    },
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^2.5.22"
+  }
+}

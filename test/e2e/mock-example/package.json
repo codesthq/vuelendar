@@ -1,0 +1,14 @@
+{
+  "name": "mock-example",
+  "version": "1.0.0",
+  "homepage": "https://github.com/codesthq/vuelendar#readme",
+  "dependencies": {
+    "vuelendar": "git+ssh://git@bitbucket.org/lusarz/vuelendar.git"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  },
+  "scripts": {
+    "build": "node-sass application.scss dist/application.css"
+  }
+}
