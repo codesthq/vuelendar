@@ -1,6 +1,6 @@
 <template>
   <vl-calendar
-    @input="date => $emit('input', date)"
+    @input="date => emitDate(date)"
     :is-selected="date => date === selectedDate"
     ref="calendar"
   />
@@ -21,6 +21,13 @@ export default {
 
   props: {
     selectedDate: String
+  },
+
+  methods: {
+    emitDate (date) {
+      this.$emit('input', date);
+      this.$emit('focus');
+    }
   }
 }
 </script>
