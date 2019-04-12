@@ -25,8 +25,8 @@ export default {
 
   methods: {
     emitDate (date) {
-      this.$emit('input', date);
-      this.$emit('focus');
+      this.$emit('input', date)
+      this.$emit('focus')
     }
   }
 }

@@ -1,0 +1,34 @@
+jobs:
+  build:
+    working_directory: ~/vuelendar
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - run:
+          name: install-peer-deps
+          command: npm install vue@2.6.10
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: lint-js
+          command: npm run lint-js
+      - run:
+          name: lint-scss
+          command: npm run lint-scss
+      - run:
+          name: test-unit
+          command: npm run test:unit
+      - run:
+          name: test-e2e
+          command: npm run test:unit

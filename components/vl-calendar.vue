@@ -3,12 +3,12 @@
     <span
       class="vl-calendar__arrow vl-calendar__arrow--back"
       @click="moveBack()"
-    ></span>
+    />
 
     <span
       class="vl-calendar__arrow vl-calendar__arrow--forward"
       @click="moveForward()"
-    ></span>
+    />
 
     <vl-calendar-month
       class="vl-calendar__month"
@@ -46,7 +46,7 @@ export default {
   },
 
   data () {
-    const today = DatesUtils.getToday();
+    const today = DatesUtils.getToday()
     return {
       currentMonthMonth: today.getMonth(),
       currentMonthYear: today.getFullYear()
@@ -55,30 +55,30 @@ export default {
 
   computed: {
     nextMonthMonth () {
-      return this.currentMonthMonth === 11 ? 0 : this.currentMonthMonth + 1;
+      return this.currentMonthMonth === 11 ? 0 : this.currentMonthMonth + 1
     },
 
     nextMonthYear () {
-      return this.currentMonthMonth === 11 ? this.currentMonthYear + 1 : this.currentMonthYear;
+      return this.currentMonthMonth === 11 ? this.currentMonthYear + 1 : this.currentMonthYear
     }
   },
 
   methods: {
     moveBack () {
       if (this.currentMonthMonth === 0) {
-        this.currentMonthMonth = 11;
-        this.currentMonthYear--;
+        this.currentMonthMonth = 11
+        this.currentMonthYear--
       } else {
-        this.currentMonthMonth--;
+        this.currentMonthMonth--
       }
     },
 
     moveForward () {
       if (this.currentMonthMonth === 11) {
-        this.currentMonthMonth = 0;
-        this.currentMonthYear++;
+        this.currentMonthMonth = 0
+        this.currentMonthYear++
       } else {
-        this.currentMonthMonth++;
+        this.currentMonthMonth++
       }
     }
   }
