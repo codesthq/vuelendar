@@ -10,18 +10,18 @@ Simple and clean calendar written in Vue.js
 
 
 ## Installation
-    npm install --save git+https://github.com/codesthq/vuelendar.git
+    npm install vuelendar@1.0.0
 
 ## Usage
 Import styles in your .vue file:
 
     <style src="vuelendar/scss/vuelendar.scss"></style>
-    
+
 Register components:
-    
+
     import VRangeSelector from 'vuelendar/components/vl-range-selector';
     import VDaySelector from 'vuelendar/components/vl-day-selector';
-    
+
     export default {
       components: {
         VRangeSelector,
@@ -35,14 +35,14 @@ Register components:
       }
       // ...
     }
-    
+
 Use in template:
 
     <v-range-selector
       :start-date.sync="range.start"
       :end-date.sync="range.end"
     />
-    
+
     <v-day-selector
       v-model="date"
     />
