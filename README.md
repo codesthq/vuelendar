@@ -1,6 +1,8 @@
 # Vuelendar
 Simple and clean calendar written in Vue.js
 
+[![CircleCI](https://circleci.com/gh/codesthq/vuelendar/tree/master.svg?style=svg)](https://circleci.com/gh/codesthq/vuelendar/tree/master)
+
 ## Features
 ### Select single date
 ![vuelendar-single](https://user-images.githubusercontent.com/10059264/55957707-44f7fb00-5c67-11e9-8648-d81d36c67489.png)

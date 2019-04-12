@@ -32,7 +32,7 @@ export default {
           this.$emit('update:endDate', null)
         }
       }
-      this.$emit('focus');
+      this.$emit('focus')
     },
 
     isSelected (date) {
