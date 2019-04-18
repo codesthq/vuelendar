@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/codesthq/vuelendar#readme",
   "dependencies": {
-    "vuelendar": "git+ssh://git@bitbucket.org/lusarz/vuelendar.git"
+    "vuelendar": "git@github.com:codesthq/vuelendar.git"
   },
   "devDependencies": {
     "node-sass": "^4.11.0"
