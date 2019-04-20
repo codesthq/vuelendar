@@ -48,3 +48,60 @@ Use in template:
     <v-day-selector
       v-model="date"
     />
+
+Use in template:
+
+    <v-range-selector
+      :start-date.sync="range.start"
+      :end-date.sync="range.end"
+    />
+
+    <v-day-selector
+      v-model="date"
+    />
+
+## Disabling dates
+
+Vuelendar allows two ways for disabling dates.
+
+Using an array:
+
+
+    <v-day-selector
+      v-model="date"
+      disabled-dates="['2019-04-21', '2019-04-25']
+    />
+    Will disable 21st April 2019 and 25th April 2019
+
+Using an object to describe a range of dates:
+
+    <v-day-selector
+      v-model="date"
+      disabled-dates="{
+        from: '2019-04-21',
+        to: '2019-04-23'
+      }"
+    />
+    Will disable all dates from 21st April 2019 and 25th April 2019
+
+Specifying only 'from' attribute will disable all dates past that date.
+
+
+    <v-day-selector
+      v-model="date"
+      disabled-dates="{
+        from: '2019-04-21',
+      }"
+    />
+    Will disable all dates from 21st April 2019
+
+Specifying only 'to' attribute will disable all dates before that date.
+
+
+    <v-day-selector
+      v-model="date"
+      disabled-dates="{
+        to: '2019-04-21',
+      }"
+    />
+    Will disable all dates before 21st April 2019
