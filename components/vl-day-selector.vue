@@ -4,6 +4,7 @@
     :is-selected="date => date === selectedDate"
     :is-disabled="disabledDates ? isDisabled : null"
     :custom-classes="customClasses"
+    :show-weeks-number="showWeeksNumber"
     ref="calendar"
   />
 </template>
@@ -22,8 +23,10 @@ export default {
   props: {
     selectedDate: String,
     disabledDates: [Object, Array],
-    customClasses: Object
+    customClasses: Object,
+    showWeeksNumber: Boolean
   },
+
   methods: {
     isDisabled(date) {
       if (Array.isArray(this.disabledDates)) {

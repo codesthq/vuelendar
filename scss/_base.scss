@@ -1,0 +1,13 @@
+@import 'variables';
+
+.vl-flex {
+  display: flex;
+}
+
+.vl-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.vl-flex-column {
+  flex-direction: column;
+}

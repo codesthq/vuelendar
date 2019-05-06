@@ -45,3 +45,11 @@ describe('DatesUtils.getMonthName', () => {
     expect(DatesUtils.getMonthName(11)).to.equal('December')
   })
 })
+
+describe('DatesUtils.getWeekNumbers', () => {
+  it('return appropriate weeks number', () => {
+    expect(DatesUtils.getWeekNumbers(4, 2019)).to.deep.equal([18, 19, 20, 21, 22])
+    expect(DatesUtils.getWeekNumbers(11, 2019)).to.deep.equal([48, 49, 50, 51, 52, 53])
+    expect(DatesUtils.getWeekNumbers(0, 2020)).to.deep.equal([1, 2, 3, 4, 5])
+  })
+})

@@ -5,50 +5,66 @@
     </div>
 
     <div class="vl-flex">
-      <span class="vl-calendar-month__week-day">
-        Mon
-      </span>
-      <span class="vl-calendar-month__week-day">
-        Tue
-      </span>
-      <span class="vl-calendar-month__week-day">
-        Wed
-      </span>
-      <span class="vl-calendar-month__week-day">
-        Thu
-      </span>
-      <span class="vl-calendar-month__week-day">
-        Fri
-      </span>
-      <span class="vl-calendar-month__week-day">
-        Sat
-      </span>
-      <span class="vl-calendar-month__week-day">
-        Sun
-      </span>
-    </div>
-
-    <div class="vl-flex">
-      <span
-        v-for="day in days"
-        :key="day"
-        @click="$emit('input', getDate(day))"
-        class="vl-calendar-month__day"
-        :class="calculateClasses(day)"
+      <div
+        v-if="showWeeksNumber"
+        class="vl-calendar-month__week-numbers-column"
       >
-        {{ day }}
-      </span>
+        <div
+          v-for="number in weekNumbers"
+          class="vl-calendar-month__week-number"
+          :key="number"
+        >{{ number }}</div>
+      </div>
+
+      <div>
+        <div class="vl-flex">
+        <span class="vl-calendar-month__week-day">
+          Mon
+        </span>
+          <span class="vl-calendar-month__week-day">
+          Tue
+        </span>
+          <span class="vl-calendar-month__week-day">
+          Wed
+        </span>
+          <span class="vl-calendar-month__week-day">
+          Thu
+        </span>
+          <span class="vl-calendar-month__week-day">
+          Fri
+        </span>
+          <span class="vl-calendar-month__week-day">
+          Sat
+        </span>
+          <span class="vl-calendar-month__week-day">
+          Sun
+        </span>
+        </div>
+
+        <div class="vl-flex vl-flex-wrap">
+        <span
+          v-for="day in days"
+          :key="day"
+          @click="$emit('input', getDate(day))"
+          class="vl-calendar-month__day"
+          :class="calculateClasses(day)"
+        >
+          {{ day }}
+        </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { createRange } from '../utils/CollectionUtils'
-import { countDays, formatDate, getMonthName } from '../utils/DatesUtils'
+import { countDays, formatDate, getMonthName, getWeekNumbers } from '../utils/DatesUtils'
 
 export default {
   name: 'VlCalendarMonth',
   props: {
+    showWeeksNumber: Boolean,
     month: Number,
     year: Number,
     isSelected: Function,
@@ -63,6 +79,10 @@ export default {
 
     days () {
       return createRange(1, countDays(this.month, this.year))
+    },
+
+    weekNumbers () {
+      return getWeekNumbers(this.month, this.year)
     }
   },
 

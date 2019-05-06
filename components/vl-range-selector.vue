@@ -4,6 +4,7 @@
     :is-selected="isSelected"
     :is-disabled="isDisabled"
     :custom-classes="customClasses"
+    :showWeeksNumber="showWeeksNumber"
     ref="calendar"
   />
 </template>
@@ -20,7 +21,8 @@ export default {
   props: {
     startDate: String,
     endDate: String,
-    customClasses: Object
+    customClasses: Object,
+    showWeeksNumber: Boolean
   },
 
   methods: {

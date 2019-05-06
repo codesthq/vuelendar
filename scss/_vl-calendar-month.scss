@@ -1,10 +1,5 @@
 @import 'variables';
 
-.vl-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .vl-calendar-month {
   padding: 0 20px;
 
@@ -12,6 +7,19 @@
     margin-bottom: 20px;
     text-align: center;
     font-weight: 600;
+  }
+
+  &__week-numbers-column {
+    padding-top: 24px;
+  }
+
+  &__week-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+    height: 24px;
   }
 
   &__week-day {

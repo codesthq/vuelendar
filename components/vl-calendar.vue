@@ -17,6 +17,7 @@
       :is-selected="isSelected"
       :is-disabled="isDisabled"
       :custom-classes="customClasses"
+      :show-weeks-number="showWeeksNumber"
       @input="date => $emit('input', date)"
     />
 
@@ -27,6 +28,7 @@
       :is-selected="isSelected"
       :is-disabled="isDisabled"
       :custom-classes="customClasses"
+      :show-weeks-number="showWeeksNumber"
       @input="date => $emit('input', date)"
     />
   </div>
@@ -45,7 +47,8 @@ export default {
   props: {
     isSelected: Function,
     isDisabled: Function,
-    customClasses: Object
+    customClasses: Object,
+    showWeeksNumber: Boolean
   },
 
   data () {

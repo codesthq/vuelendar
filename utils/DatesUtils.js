@@ -13,6 +13,10 @@ export function formatDate (day, month, year) {
   return `${date.getFullYear()}-${twoDigits(date.getMonth() + 1)}-${twoDigits(date.getDate())}`
 }
 
+export function getWeekNumbers (month, year) {
+  return [1, 2, 3, 4] // TODO: implement it
+}
+
 export function getMonthName (month) {
   return [
     'January',
