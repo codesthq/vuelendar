@@ -5,6 +5,7 @@
     :is-disabled="disabledDates ? isDisabled : null"
     :custom-classes="customClasses"
     :show-weeks-number="showWeeksNumber"
+    :default-date="defaultDate"
     ref="calendar"
   />
 </template>
@@ -24,7 +25,8 @@ export default {
     selectedDate: String,
     disabledDates: [Object, Array],
     customClasses: Object,
-    showWeeksNumber: Boolean
+    showWeeksNumber: Boolean,
+    defaultDate: String
   },
 
   methods: {

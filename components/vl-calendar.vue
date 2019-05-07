@@ -48,14 +48,15 @@ export default {
     isSelected: Function,
     isDisabled: Function,
     customClasses: Object,
-    showWeeksNumber: Boolean
+    showWeeksNumber: Boolean,
+    defaultDate: String
   },
 
   data () {
-    const today = DatesUtils.getToday()
+    const defaultDate = this.defaultDate ? DatesUtils.parseDate(this.defaultDate) : DatesUtils.getToday()
     return {
-      currentMonthMonth: today.getMonth(),
-      currentMonthYear: today.getFullYear()
+      currentMonthMonth: defaultDate.getMonth(),
+      currentMonthYear: defaultDate.getFullYear()
     }
   },
 

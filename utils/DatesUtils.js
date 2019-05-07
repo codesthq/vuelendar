@@ -8,6 +8,10 @@ export function countDays (month, year) {
   return new Date(year, month + 1, 0).getDate()
 }
 
+export function parseDate (string) {
+  return new Date(string)
+}
+
 export function formatDate (day, month, year) {
   const date = new Date(year, month, day)
   return `${date.getFullYear()}-${twoDigits(date.getMonth() + 1)}-${twoDigits(date.getDate())}`
