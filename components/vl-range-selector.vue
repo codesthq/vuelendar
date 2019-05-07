@@ -24,12 +24,13 @@ export default {
     endDate: String,
     customClasses: Object,
     showWeeksNumber: Boolean,
-    defaultDate: String
+    defaultDate: String,
+    blockStartDate: Boolean
   },
 
   methods: {
     emitDate (date) {
-      if (this.startDate && !this.endDate) {
+      if (this.blockStartDate || (this.startDate && !this.endDate)) {
         this.$emit('update:endDate', date)
       } else {
         this.$emit('update:startDate', date)

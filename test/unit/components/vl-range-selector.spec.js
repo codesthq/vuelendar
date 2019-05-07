@@ -34,6 +34,15 @@ describe('vl-range-selector', () => {
     expect(wrapper.emitted('update:endDate')).to.deep.equal([['2018-02-05']])
   })
   
+  it('it is possible to block start date', () => {
+    mountComponent({ startDate: '2019-01-28', endDate: '2019-02-04', blockStartDate: true })
+    wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2019-02-08')
+    wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2019-02-09')
+    
+    expect(wrapper.emitted('update:startDate')).to.deep.equal(undefined)
+    expect(wrapper.emitted('update:endDate')).to.deep.equal([['2019-02-08'], ['2019-02-09']])
+  })
+  
   it('when only start date is selected, it is marked', () => {
     mountComponent({ startDate: '2018-02-15' })
   
@@ -68,7 +77,7 @@ describe('vl-range-selector', () => {
     expect(isDisabled('2019-01-29')).to.be.false
     expect(isDisabled('2020-01-26')).to.be.false
   })
-  
+
   it('"customClasses" property is propagated down', () => {
     const customClasses = { 'is-processing': () => true }
     mountComponent({ customClasses })
