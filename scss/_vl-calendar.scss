@@ -13,7 +13,7 @@
   &__month {
     display: inline-block;
     margin-bottom: 30px;
-    width: 300px;
+    width: $vl-calendar-month-width;
   }
 
   &__arrow {
