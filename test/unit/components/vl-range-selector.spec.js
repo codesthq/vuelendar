@@ -75,4 +75,12 @@ describe('vl-range-selector', () => {
     
     expect(wrapper.find({ ref: 'calendar' }).props().customClasses).to.equal(customClasses)
   })
+  
+  it('"showWeeksNumber" property is propagated down', () => {
+    mountComponent()
+    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.false
+    
+    mountComponent({ showWeeksNumber: true })
+    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
+  })
 })

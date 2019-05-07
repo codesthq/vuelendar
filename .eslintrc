@@ -16,6 +16,7 @@
     "mocha/no-exclusive-tests": "error",
     "arrow-parens": ["error", "as-needed"],
     "keyword-spacing": "error",
+    "space-before-function-paren": ["error", "always"],
     "vue/order-in-components": ["error", {
       "order": [
         "extends",

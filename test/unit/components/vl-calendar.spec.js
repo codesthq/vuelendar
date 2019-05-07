@@ -24,13 +24,15 @@ describe('vl-calendar', () => {
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }, {
       month: 0,
       year: 2020,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }])
   })
   
@@ -43,13 +45,15 @@ describe('vl-calendar', () => {
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }, {
       month: 1,
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }])
   })
   
@@ -64,13 +68,15 @@ describe('vl-calendar', () => {
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }, {
       month: 1,
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }])
   })
   
@@ -85,13 +91,15 @@ describe('vl-calendar', () => {
       year: 2018,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }, {
       month: 11,
       year: 2018,
       isSelected: undefined,
       isDisabled: undefined,
-      customClasses: undefined
+      customClasses: undefined,
+      showWeeksNumber: false
     }])
   })
   
@@ -108,13 +116,15 @@ describe('vl-calendar', () => {
       year: 2019,
       isDisabled,
       isSelected,
-      customClasses
+      customClasses,
+      showWeeksNumber: false
     }, {
       month: 1,
       year: 2019,
       isDisabled,
       isSelected,
-      customClasses
+      customClasses,
+      showWeeksNumber: false
     }])
   })
   
@@ -126,5 +136,13 @@ describe('vl-calendar', () => {
     })
     
     expect(wrapper.emitted('input')).to.deep.equal([['2019-02-13'], ['2019-02-13']])
+  })
+  
+  it('showWeeksNumber property is propagated down', () => {
+    mountComponent()
+    expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.false
+  
+    mountComponent({ showWeeksNumber: true })
+    expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.true
   })
 })

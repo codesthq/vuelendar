@@ -3,11 +3,14 @@ import sinon from 'sinon'
 import { shallowMount } from '@vue/test-utils'
 import VlCalendarMonth from '../../../components/vl-calendar-month'
 import { createRange } from '../../../utils/CollectionUtils'
+import * as DatesUtils from '../../../utils/DatesUtils'
 
 describe('vl-calendar-month', () => {
   let wrapper
 
   function mountComponent (propsData = {}) {
+    sinon.restore()
+    sinon.stub(DatesUtils, 'getWeekNumbers').returns([5, 6, 7, 8, 9])
     wrapper = shallowMount(VlCalendarMonth, { propsData })
     return wrapper
   }
@@ -109,6 +112,13 @@ describe('vl-calendar-month', () => {
     days.slice(21).forEach(w => {
       expect(w.classes()).to.not.include('disabled')
     })
+  })
+  
+  it('weeks numbers are displayed on demand', () => {
+    mountComponent({ showWeeksNumber: true })
+    
+    expect(wrapper.findAll('.vl-calendar-month__week-numbers-column .vl-calendar-month__week-number').wrappers.map(w => w.text()))
+      .to.deep.equal(['5', '6', '7', '8', '9'])
   })
   
   it('it is possible to setup custom class', () => {
