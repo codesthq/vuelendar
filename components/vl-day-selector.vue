@@ -3,6 +3,7 @@
     @input="date => emitDate(date)"
     :is-selected="date => date === selectedDate"
     :is-disabled="disabledDates ? isDisabled : null"
+    :custom-classes="customClasses"
     ref="calendar"
   />
 </template>
@@ -20,7 +21,8 @@ export default {
   },
   props: {
     selectedDate: String,
-    disabledDates: [Object, Array]
+    disabledDates: [Object, Array],
+    customClasses: Object
   },
   methods: {
     isDisabled(date) {

@@ -68,4 +68,11 @@ describe('vl-range-selector', () => {
     expect(isDisabled('2019-01-29')).to.be.false
     expect(isDisabled('2020-01-26')).to.be.false
   })
+  
+  it('"customClasses" property is propagated down', () => {
+    const customClasses = { 'is-processing': () => true }
+    mountComponent({ customClasses })
+    
+    expect(wrapper.find({ ref: 'calendar' }).props().customClasses).to.equal(customClasses)
+  })
 })

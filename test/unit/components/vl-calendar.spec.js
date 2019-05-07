@@ -23,12 +23,14 @@ describe('vl-calendar', () => {
       month: 11,
       year: 2019,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }, {
       month: 0,
       year: 2020,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }])
   })
   
@@ -40,12 +42,14 @@ describe('vl-calendar', () => {
       month: 0,
       year: 2019,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }, {
       month: 1,
       year: 2019,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }])
   })
   
@@ -59,12 +63,14 @@ describe('vl-calendar', () => {
       month: 0,
       year: 2019,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }, {
       month: 1,
       year: 2019,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }])
   })
   
@@ -78,12 +84,14 @@ describe('vl-calendar', () => {
       month: 10,
       year: 2018,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }, {
       month: 11,
       year: 2018,
       isSelected: undefined,
-      isDisabled: undefined
+      isDisabled: undefined,
+      customClasses: undefined
     }])
   })
   
@@ -92,18 +100,21 @@ describe('vl-calendar', () => {
     
     const isSelected = () => {}
     const isDisabled = () => {}
-    mountComponent({ isSelected, isDisabled })
+    const customClasses = { 'is-processing': () => true }
+    mountComponent({ isSelected, isDisabled, customClasses })
     
     expect(wrapper.findAll(VlCalendarMonth).wrappers.map(w => w.props())).to.deep.equal([{
       month: 0,
       year: 2019,
       isDisabled,
-      isSelected
+      isSelected,
+      customClasses
     }, {
       month: 1,
       year: 2019,
       isDisabled,
-      isSelected
+      isSelected,
+      customClasses
     }])
   })
   

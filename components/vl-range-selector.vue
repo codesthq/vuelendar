@@ -3,6 +3,7 @@
     @input="date => emitDate(date)"
     :is-selected="isSelected"
     :is-disabled="isDisabled"
+    :custom-classes="customClasses"
     ref="calendar"
   />
 </template>
@@ -18,7 +19,8 @@ export default {
 
   props: {
     startDate: String,
-    endDate: String
+    endDate: String,
+    customClasses: Object
   },
 
   methods: {

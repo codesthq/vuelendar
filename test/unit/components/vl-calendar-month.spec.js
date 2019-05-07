@@ -110,4 +110,22 @@ describe('vl-calendar-month', () => {
       expect(w.classes()).to.not.include('disabled')
     })
   })
+  
+  it('it is possible to setup custom class', () => {
+    mountComponent({
+      month: 1,
+      year: 2019,
+      customClasses: { 'is-processing': date => date < '2019-02-21' && date > '2019-01-31' }
+    })
+  
+    const days = wrapper.findAll('.vl-calendar-month__day').wrappers
+    
+    days.slice(0, 20).forEach(w => {
+      expect(w.classes()).to.include('is-processing')
+    })
+  
+    days.slice(21).forEach(w => {
+      expect(w.classes()).to.not.include('is-processing')
+    })
+  })
 })

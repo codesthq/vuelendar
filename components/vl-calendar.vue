@@ -16,6 +16,7 @@
       :year="currentMonthYear"
       :is-selected="isSelected"
       :is-disabled="isDisabled"
+      :custom-classes="customClasses"
       @input="date => $emit('input', date)"
     />
 
@@ -25,6 +26,7 @@
       :year="nextMonthYear"
       :is-selected="isSelected"
       :is-disabled="isDisabled"
+      :custom-classes="customClasses"
       @input="date => $emit('input', date)"
     />
   </div>
@@ -42,7 +44,8 @@ export default {
 
   props: {
     isSelected: Function,
-    isDisabled: Function
+    isDisabled: Function,
+    customClasses: Object
   },
 
   data () {

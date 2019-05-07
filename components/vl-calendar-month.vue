@@ -52,7 +52,8 @@ export default {
     month: Number,
     year: Number,
     isSelected: Function,
-    isDisabled: Function
+    isDisabled: Function,
+    customClasses: Object
   },
 
   computed: {
@@ -103,6 +104,13 @@ export default {
           classes.push('disabled--last')
         }
       }
+
+      Object.keys(this.customClasses || {}).forEach(cl => {
+        const fn = this.customClasses[cl]
+        if (fn(date)) {
+          classes.push(cl)
+        }
+      })
 
       return classes
     }
