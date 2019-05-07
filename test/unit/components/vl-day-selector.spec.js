@@ -10,6 +10,7 @@ describe('vl-day-selector', () => {
       propsData: {
         selectedDate: config.selectedDate,
         disabledDates: config.disabledDates,
+        customClasses: config.customClasses
       }
     })
     return wrapper
@@ -94,5 +95,12 @@ describe('vl-day-selector', () => {
     expect(isDisabled('2018-02-13')).to.be.true
     expect(isDisabled('2010-02-13')).to.be.true
     expect(isDisabled('1990-02-13')).to.be.true
+  })
+
+  it('"customClasses" property is propagated down', () => {
+    const customClasses = { 'is-processing': () => true }
+    mountComponent({ customClasses })
+    
+    expect(wrapper.find({ ref: 'calendar' }).props().customClasses).to.equal(customClasses)
   })
 })
