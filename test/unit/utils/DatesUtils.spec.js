@@ -15,6 +15,17 @@ describe('DatesUtils.countDays', () => {
   })
 })
 
+describe('DatesUtils.parseDate', () => {
+  it('return Date object from string', () => {
+    const date = DatesUtils.parseDate('2019-01-03')
+    
+    expect(date instanceof Date).to.be.true
+    expect(date.getFullYear()).to.equal(2019)
+    expect(date.getMonth()).to.equal(0)
+    expect(date.getDate()).to.equal(3)
+  })
+})
+
 describe('DatesUtils.formatDate', () => {
   it('return appropriate formatted date', () => {
     expect(DatesUtils.formatDate(2, 0, 2018)).to.equal('2018-01-02')

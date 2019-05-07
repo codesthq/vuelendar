@@ -36,6 +36,15 @@ describe('vl-calendar', () => {
     }])
   })
   
+  it('when default date is passed, it is displayed on first calendar', () => {
+    sinon.stub(DatesUtils, 'getToday').returns(new Date('2019-12-31'))
+    mountComponent({ defaultDate: '2018-04-03' })
+    
+    const props = wrapper.findAll(VlCalendarMonth).wrappers.map(w => w.props())
+    expect(props[0]).to.deep.include({ month: 3, year: 2018 })
+    expect(props[1]).to.deep.include({ month: 4, year: 2018 })
+  })
+  
   it('January and February 2019 are visible in 2019-01-31', () => {
     sinon.stub(DatesUtils, 'getToday').returns(new Date('2019-01-31'))
     mountComponent()
