@@ -17,7 +17,7 @@ export function formatDate (day, month, year) {
 
 export function getWeekNumbers (month, year) {
   let weekNumbers = []
-  for (let i = 1; i <= getDaysInMonth(month, year); i++) {
+  for (let i = 1; i <= countDays(month, year); i++) {
     let weekNumber = getWeekNumber(new Date(year, month, i))
     if (month === 11 && weekNumber === 1) {
       weekNumber = weekNumbers[weekNumbers.length - 1] + 1
@@ -27,10 +27,6 @@ export function getWeekNumbers (month, year) {
     weekNumbers.push(weekNumber)
   }
   return Array.from(new Set(weekNumbers))
-}
-
-export function getDaysInMonth (month, year) {
-  return new Date(year, month + 1, 0).getDate()
 }
 
 export function getWeekNumber (date) {

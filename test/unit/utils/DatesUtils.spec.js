@@ -55,15 +55,6 @@ describe('DatesUtils.getWeekNumbers', () => {
   })
 })
 
-describe('DatesUtils.getDaysInMonth', () => {
-  it('return numbers of days in month', () => {
-    expect(DatesUtils.getDaysInMonth(0, 2019)).to.equal(31)
-    expect(DatesUtils.getDaysInMonth(1, 2019)).to.equal(28)
-    expect(DatesUtils.getDaysInMonth(1, 2020)).to.equal(29)
-    expect(DatesUtils.getDaysInMonth(11, 2019)).to.equal(31)
-  })
-})
-
 describe('DatesUtils.getWeekNumber', () => {
   it('return week number', () => {
     expect(DatesUtils.getWeekNumber(new Date(2019, 0, 1))).to.equal(1)
