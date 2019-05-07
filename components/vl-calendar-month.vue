@@ -13,44 +13,46 @@
           v-for="number in weekNumbers"
           class="vl-calendar-month__week-number"
           :key="number"
-        >{{ number }}</div>
+        >
+          {{ number }}
+        </div>
       </div>
 
       <div>
         <div class="vl-flex">
-        <span class="vl-calendar-month__week-day">
-          Mon
-        </span>
           <span class="vl-calendar-month__week-day">
-          Tue
-        </span>
+            Mon
+          </span>
           <span class="vl-calendar-month__week-day">
-          Wed
-        </span>
+            Tue
+          </span>
           <span class="vl-calendar-month__week-day">
-          Thu
-        </span>
+            Wed
+          </span>
           <span class="vl-calendar-month__week-day">
-          Fri
-        </span>
+            Thu
+          </span>
           <span class="vl-calendar-month__week-day">
-          Sat
-        </span>
+            Fri
+          </span>
           <span class="vl-calendar-month__week-day">
-          Sun
-        </span>
+            Sat
+          </span>
+          <span class="vl-calendar-month__week-day">
+            Sun
+          </span>
         </div>
 
         <div class="vl-flex vl-flex-wrap">
-        <span
-          v-for="day in days"
-          :key="day"
-          @click="$emit('input', getDate(day))"
-          class="vl-calendar-month__day"
-          :class="calculateClasses(day)"
-        >
-          {{ day }}
-        </span>
+          <span
+            v-for="day in days"
+            :key="day"
+            @click="$emit('input', getDate(day))"
+            class="vl-calendar-month__day"
+            :class="calculateClasses(day)"
+          >
+            {{ day }}
+          </span>
         </div>
       </div>
     </div>

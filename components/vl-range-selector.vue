@@ -4,7 +4,7 @@
     :is-selected="isSelected"
     :is-disabled="isDisabled"
     :custom-classes="customClasses"
-    :showWeeksNumber="showWeeksNumber"
+    :show-weeks-number="showWeeksNumber"
     ref="calendar"
   />
 </template>

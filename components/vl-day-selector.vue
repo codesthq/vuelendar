@@ -28,7 +28,7 @@ export default {
   },
 
   methods: {
-    isDisabled(date) {
+    isDisabled (date) {
       if (Array.isArray(this.disabledDates)) {
         return this.disabledDates.includes(date)
       } else {

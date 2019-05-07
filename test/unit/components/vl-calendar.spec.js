@@ -143,6 +143,6 @@ describe('vl-calendar', () => {
     expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.false
   
     mountComponent({ showWeeksNumber: true })
-    expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.true;
+    expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.true
   })
 })

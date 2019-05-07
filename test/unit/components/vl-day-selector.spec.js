@@ -110,6 +110,6 @@ describe('vl-day-selector', () => {
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.undefined
     
     mountComponent({ showWeeksNumber: true })
-    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true;
+    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
   })
 })

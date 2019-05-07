@@ -17,24 +17,21 @@
     "arrow-parens": ["error", "as-needed"],
     "keyword-spacing": "error",
     "space-before-function-paren": ["error", "always"],
-    "vue/order-in-components": [
-      "error",
-      {
-        "order": [
-          "extends",
-          "name",
-          "model",
-          "mixins",
-          "components",
-          "props",
-          "data",
-          "computed",
-          "methods",
-          "watch",
-          "LIFECYCLE_HOOKS"
-        ]
-      }
-    ]
+    "vue/order-in-components": ["error", {
+      "order": [
+        "extends",
+        "name",
+        "model",
+        "mixins",
+        "components",
+        "props",
+        "data",
+        "computed",
+        "methods",
+        "watch",
+        "LIFECYCLE_HOOKS"
+      ]
+    }]
   },
   "plugins": ["mocha"],
   "extends": ["eslint:recommended", "plugin:vue/strongly-recommended"],

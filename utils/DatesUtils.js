@@ -10,9 +10,7 @@ export function countDays (month, year) {
 
 export function formatDate (day, month, year) {
   const date = new Date(year, month, day)
-  return `${date.getFullYear()}-${twoDigits(date.getMonth() + 1)}-${twoDigits(
-    date.getDate()
-  )}`
+  return `${date.getFullYear()}-${twoDigits(date.getMonth() + 1)}-${twoDigits(date.getDate())}`
 }
 
 export function getWeekNumbers (month, year) {

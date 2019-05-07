@@ -81,6 +81,6 @@ describe('vl-range-selector', () => {
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.false
     
     mountComponent({ showWeeksNumber: true })
-    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true;
+    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
   })
 })
