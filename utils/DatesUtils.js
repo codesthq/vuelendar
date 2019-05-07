@@ -1,19 +1,21 @@
 import { twoDigits } from './NumberUtils'
 
-export function getToday() {
+export function getToday () {
   return new Date()
 }
 
-export function countDays(month, year) {
+export function countDays (month, year) {
   return new Date(year, month + 1, 0).getDate()
 }
 
-export function formatDate(day, month, year) {
+export function formatDate (day, month, year) {
   const date = new Date(year, month, day)
-  return `${date.getFullYear()}-${twoDigits(date.getMonth() + 1)}-${twoDigits(date.getDate())}`
+  return `${date.getFullYear()}-${twoDigits(date.getMonth() + 1)}-${twoDigits(
+    date.getDate()
+  )}`
 }
 
-export function getWeekNumbers(month, year) {
+export function getWeekNumbers (month, year) {
   let weekNumbers = []
   for (let i = 1; i <= getDaysInMonth(month, year); i++) {
     let weekNumber = getWeekNumber(new Date(year, month, i))
@@ -27,11 +29,11 @@ export function getWeekNumbers(month, year) {
   return Array.from(new Set(weekNumbers))
 }
 
-export function getDaysInMonth(month, year) {
+export function getDaysInMonth (month, year) {
   return new Date(year, month + 1, 0).getDate()
 }
 
-export function getWeekNumber(date) {
+export function getWeekNumber (date) {
   date = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
   // Set to nearest Thursday: current date + 4 - current day number
   // Make Sunday's day number 7
@@ -43,7 +45,7 @@ export function getWeekNumber(date) {
   return Math.ceil(((date - yearStart) / oneDayInMs + 1) / 7)
 }
 
-export function getMonthName(month) {
+export function getMonthName (month) {
   return [
     'January',
     'February',
