@@ -68,6 +68,12 @@
       color: $vl-selected-day-text-color;
       font-weight: 800;
 
+      &.disabled {
+        border: $vl-selected-disabled-border;
+        background: $vl-selected-disabled-day-bg-color;
+        color: $vl-selected-disabled-day-text-color;
+      }
+
       &--first {
         border-top-left-radius: 14px;
         border-bottom-left-radius: 14px;

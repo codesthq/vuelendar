@@ -25,7 +25,8 @@ export default {
     customClasses: Object,
     showWeeksNumber: Boolean,
     defaultDate: String,
-    blockStartDate: Boolean
+    blockStartDate: Boolean,
+    disabled: Boolean
   },
 
   methods: {
@@ -53,7 +54,9 @@ export default {
     },
 
     isDisabled (date) {
-      if (this.startDate && !this.endDate) {
+      if (this.disabled) {
+        return true
+      } else if (this.startDate && !this.endDate) {
         return date <= this.startDate
       } else {
         return false

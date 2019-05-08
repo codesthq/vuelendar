@@ -42,6 +42,15 @@ describe('vl-range-selector', () => {
     expect(wrapper.emitted('update:startDate')).to.deep.equal(undefined)
     expect(wrapper.emitted('update:endDate')).to.deep.equal([['2019-02-08'], ['2019-02-09']])
   })
+
+  it('it is possible to block whole calendar', () => {
+    mountComponent({ disabled: true })
+
+    const isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
+    expect(isDisabled('2019-01-15')).to.be.true
+    expect(isDisabled('2019-01-27')).to.be.true
+    expect(isDisabled('2019-01-28')).to.be.true
+  })
   
   it('when only start date is selected, it is marked', () => {
     mountComponent({ startDate: '2018-02-15' })
