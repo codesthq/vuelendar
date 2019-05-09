@@ -18,6 +18,9 @@ $vl-weekday-text-color: $vl-primary !default;
 
 $vl-selected-day-bg-color: $vl-primary !default;
 $vl-selected-day-text-color: $vl-white !default;
+$vl-selected-disabled-day-bg-color: darken($vl-primary, 15%) !default;
+$vl-selected-disabled-day-text-color: $vl-black !default;
+$vl-selected-disabled-border: 1px solid $vl-black !default;
 
 //
 // Sizes
