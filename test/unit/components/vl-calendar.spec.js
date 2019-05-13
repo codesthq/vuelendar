@@ -154,4 +154,9 @@ describe('vl-calendar', () => {
     mountComponent({ showWeeksNumber: true })
     expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.true
   })
+  
+  it('single month is rendered on demand', () => {
+    mountComponent({ singleMonth: true })
+    expect(wrapper.findAll(VlCalendarMonth)).to.have.lengthOf(1)
+  })
 })
