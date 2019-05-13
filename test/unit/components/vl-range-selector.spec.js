@@ -112,9 +112,11 @@ describe('vl-range-selector', () => {
     mountComponent()
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.false
     expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.be.undefined
+    expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.be.false
     
-    mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03' })
+    mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03', singleMonth: true })
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
     expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.equal('2019-01-03')
+    expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.be.true
   })
 })

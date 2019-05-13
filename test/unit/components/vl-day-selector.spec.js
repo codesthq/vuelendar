@@ -13,7 +13,8 @@ describe('vl-day-selector', () => {
         customClasses: config.customClasses,
         showWeeksNumber: config.showWeeksNumber,
         defaultDate: config.defaultDate,
-        isDisabled: config.isDisabled
+        isDisabled: config.isDisabled,
+        singleMonth: config.singleMonth
       }
     })
     return wrapper
@@ -112,11 +113,13 @@ describe('vl-day-selector', () => {
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.undefined
     expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.be.undefined
     expect(wrapper.find({ ref: 'calendar' }).props().isDisabled).to.be.undefined
+    expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.be.undefined
 
     const isDisabled = () => true
-    mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03', isDisabled })
+    mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03', singleMonth: true, isDisabled })
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
     expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.equal('2019-01-03')
     expect(wrapper.find({ ref: 'calendar' }).props().isDisabled).to.equal(isDisabled)
+    expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.equal(true)
   })
 })

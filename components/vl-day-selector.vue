@@ -6,6 +6,7 @@
     :custom-classes="customClasses"
     :show-weeks-number="showWeeksNumber"
     :default-date="defaultDate"
+    :single-month="singleMonth"
     ref="calendar"
   />
 </template>
@@ -27,7 +28,8 @@ export default {
     isDisabled: Function,
     customClasses: Object,
     showWeeksNumber: Boolean,
-    defaultDate: String
+    defaultDate: String,
+    singleMonth: Boolean
   },
 
   methods: {

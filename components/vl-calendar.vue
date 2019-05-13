@@ -22,6 +22,7 @@
     />
 
     <vl-calendar-month
+      v-if="!singleMonth"
       class="vl-calendar__month"
       :month="nextMonthMonth"
       :year="nextMonthYear"
@@ -49,6 +50,7 @@ export default {
     isDisabled: Function,
     customClasses: Object,
     showWeeksNumber: Boolean,
+    singleMonth: Boolean,
     defaultDate: String
   },
 
