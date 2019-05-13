@@ -1,7 +1,7 @@
 @import 'variables';
 
 .vl-calendar-month {
-  padding: 0 20px;
+  padding: $vl-calendar-month-padding;
 
   &__title {
     margin-bottom: 20px;
