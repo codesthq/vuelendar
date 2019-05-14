@@ -2,7 +2,7 @@
   <vl-calendar
     @input="date => emitDate(date)"
     :is-selected="isSelected"
-    :is-disabled="isDisabled"
+    :is-disabled="calculateDisabled"
     :custom-classes="customClasses"
     :show-weeks-number="showWeeksNumber"
     :default-date="defaultDate"
@@ -29,6 +29,7 @@ export default {
     blockStartDate: Boolean,
     disabled: Boolean,
     disabledDates: Object,
+    isDisabled: Function,
     singleMonth: Boolean
   },
 
@@ -56,11 +57,13 @@ export default {
       }
     },
 
-    isDisabled (date) {
+    calculateDisabled (date) {
+      const isDisabled = this.isDisabled || (() => false)
+
       if (this.disabled) {
         return true
       } else if (this.startDate && !this.endDate) {
-        return date <= this.startDate
+        return isDisabled(date) || date <= this.startDate
       } else if (this.disabledDates) {
         if (this.disabledDates.from) {
           return date >= this.disabledDates.from
@@ -68,7 +71,7 @@ export default {
           return date <= this.disabledDates.to
         }
       } else {
-        return false
+        return isDisabled(date)
       }
     }
   }
