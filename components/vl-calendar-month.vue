@@ -50,6 +50,9 @@
             @click="$emit('input', getDate(day))"
             class="vl-calendar-month__day"
             :class="calculateClasses(day)"
+            :data-day="day"
+            :data-month="month"
+            :data-year="year"
           >
             {{ day }}
           </span>
