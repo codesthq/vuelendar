@@ -36,7 +36,7 @@ export default {
 
   methods: {
     emitDate (date) {
-      if (this.blockStartDate || (this.startDate && !this.endDate && date > this.startDate)) {
+      if (this.blockStartDate || (this.startDate && !this.endDate && date >= this.startDate)) {
         this.$emit('update:endDate', date)
       } else {
         this.$emit('update:startDate', date)
