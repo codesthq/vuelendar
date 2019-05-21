@@ -36,7 +36,7 @@ export default {
 
   methods: {
     emitDate (date) {
-      if (this.blockStartDate || (this.startDate && !this.endDate)) {
+      if (this.blockStartDate || (this.startDate && !this.endDate && date > this.startDate)) {
         this.$emit('update:endDate', date)
       } else {
         this.$emit('update:startDate', date)
@@ -64,7 +64,7 @@ export default {
       if (this.disabled) {
         return true
       } else if (this.startDate && !this.endDate) {
-        return isDisabled(date) || date < this.startDate || (!this.enableSingleDate && date === this.startDate)
+        return isDisabled(date) || (!this.enableSingleDate && date === this.startDate)
       } else if (this.disabledDates) {
         if (this.disabledDates.from) {
           return date >= this.disabledDates.from

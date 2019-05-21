@@ -98,15 +98,19 @@ describe('vl-range-selector', () => {
     expect(isSelected('2018-01-30')).to.be.false
   })
   
-  it('when only start date is selected, it is not possible to select previous date', () => {
+  it('when only start date is selected, click on previous date cause change on start date', () => {
     mountComponent({ startDate: '2019-01-28' })
   
     const isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
-    expect(isDisabled('2019-01-15')).to.be.true
-    expect(isDisabled('2019-01-27')).to.be.true
+    expect(isDisabled('2019-01-15')).to.be.false
+    expect(isDisabled('2019-01-27')).to.be.false
     expect(isDisabled('2019-01-28')).to.be.true
     expect(isDisabled('2019-01-29')).to.be.false
     expect(isDisabled('2020-01-26')).to.be.false
+  
+    wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2019-01-15')
+
+    expect(wrapper.emitted()).to.deep.equal({ 'update:startDate': [['2019-01-15']], 'focus': [[]] })
   })
 
   it('"customClasses" property is propagated down', () => {
