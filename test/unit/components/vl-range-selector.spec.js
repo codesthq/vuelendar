@@ -66,6 +66,14 @@ describe('vl-range-selector', () => {
     expect(isDisabled('2019-01-16')).to.be.false
   })
   
+  it('when "enableSingleDate" flag is passed, endDate can be same as startDate', () => {
+    mountComponent({ startDate: '2019-02-08' })
+    expect(wrapper.find({ ref: 'calendar' }).props().isDisabled('2019-02-08')).to.be.true
+  
+    mountComponent({ startDate: '2019-02-08', enableSingleDate: true })
+    expect(wrapper.find({ ref: 'calendar' }).props().isDisabled('2019-02-08')).to.be.false
+  })
+  
   it('when only start date is selected, it is marked', () => {
     mountComponent({ startDate: '2018-02-15' })
   
