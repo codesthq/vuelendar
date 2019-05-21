@@ -30,7 +30,8 @@ export default {
     disabled: Boolean,
     disabledDates: Object,
     isDisabled: Function,
-    singleMonth: Boolean
+    singleMonth: Boolean,
+    enableSingleDate: Boolean
   },
 
   methods: {
@@ -63,7 +64,7 @@ export default {
       if (this.disabled) {
         return true
       } else if (this.startDate && !this.endDate) {
-        return isDisabled(date) || date <= this.startDate
+        return isDisabled(date) || date < this.startDate || (!this.enableSingleDate && date === this.startDate)
       } else if (this.disabledDates) {
         if (this.disabledDates.from) {
           return date >= this.disabledDates.from
