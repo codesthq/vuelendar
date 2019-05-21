@@ -14,6 +14,7 @@
     display: inline-block;
     margin-bottom: 30px;
     width: $vl-calendar-month-width;
+    max-width: 80vw;
   }
 
   &__arrow {
