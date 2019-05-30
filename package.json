@@ -1,6 +1,6 @@
 {
   "name": "vuelendar",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Simple and clean calendar written in Vue.js",
   "scripts": {
     "test:unit": "jest",
