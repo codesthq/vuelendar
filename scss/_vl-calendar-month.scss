@@ -86,10 +86,12 @@
     }
 
     &:hover {
-      border-radius: 14px;
-      background: $vl-selected-day-bg-color;
-      color: $vl-selected-day-text-color;
-      font-weight: 800;
+      &:not(.selected) {
+        border-radius: 14px;
+        background: $vl-selected-day-bg-color;
+        color: $vl-selected-day-text-color;
+        font-weight: 800;
+      }
     }
   }
 }
