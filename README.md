@@ -17,7 +17,7 @@ Simple and clean calendar written in Vue.js. See it in action [here](https://cod
 ## Usage
 Import styles in your .vue file:
 
-    <style src="vuelendar/scss/vuelendar.scss"></style>
+    <style src="vuelendar/scss/vuelendar.scss" lang="scss"></style>
 
 Register components:
 
