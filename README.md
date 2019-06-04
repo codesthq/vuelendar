@@ -49,17 +49,6 @@ Use in template:
       v-model="date"
     />
 
-Use in template:
-
-    <v-range-selector
-      :start-date.sync="range.start"
-      :end-date.sync="range.end"
-    />
-
-    <v-day-selector
-      v-model="date"
-    />
-
 ## Disabling dates
 
 Vuelendar allows two ways for disabling dates.
