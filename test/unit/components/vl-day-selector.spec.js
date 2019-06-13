@@ -14,7 +14,8 @@ describe('vl-day-selector', () => {
         showWeeksNumber: config.showWeeksNumber,
         defaultDate: config.defaultDate,
         isDisabled: config.isDisabled,
-        singleMonth: config.singleMonth
+        singleMonth: config.singleMonth,
+        firstDayOfWeek: config.firstDayOfWeek
       }
     })
     return wrapper
@@ -114,12 +115,14 @@ describe('vl-day-selector', () => {
     expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.be.undefined
     expect(wrapper.find({ ref: 'calendar' }).props().isDisabled).to.be.undefined
     expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.be.undefined
+    expect(wrapper.find({ ref: 'calendar' }).props().firstDayOfWeek).to.equal('mon')
 
     const isDisabled = () => true
-    mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03', singleMonth: true, isDisabled })
+    mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03', singleMonth: true, isDisabled, firstDayOfWeek: 'tue' })
     expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
     expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.equal('2019-01-03')
     expect(wrapper.find({ ref: 'calendar' }).props().isDisabled).to.equal(isDisabled)
     expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.equal(true)
+    expect(wrapper.find({ ref: 'calendar' }).props().firstDayOfWeek).to.equal('tue')
   })
 })

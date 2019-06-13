@@ -56,14 +56,29 @@ describe('vl-calendar-month', () => {
     mountComponent({ month: 8, year: 2019 }) // First day is Sunday
     expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-6')
     
+    mountComponent({ month: 8, year: 2019, firstDayOfWeek: 'sun' }) // First day is Sunday
+    expect(wrapper.find('.vl-calendar-month__day').classes()).to.deep.equal(['vl-calendar-month__day'])
+  
+    mountComponent({ month: 8, year: 2019, firstDayOfWeek: 'sat' }) // First day is Sunday
+    expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-1')
+    
     mountComponent({ month: 1, year: 2019 }) // First day is Friday
     expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-4')
+  
+    mountComponent({ month: 1, year: 2019, firstDayOfWeek: 'sun' }) // First day is Friday
+    expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-5')
     
     mountComponent({ month: 0, year: 2019 }) // First day is Tuesday
     expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-1')
   
+    mountComponent({ month: 0, year: 2019, firstDayOfWeek: 'sun'  }) // First day is Tuesday
+    expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-2')
+  
     mountComponent({ month: 3, year: 2019 }) // First day is Monday
     expect(wrapper.find('.vl-calendar-month__day').classes()).to.deep.equal(['vl-calendar-month__day'])
+  
+    mountComponent({ month: 3, year: 2019, firstDayOfWeek: 'sun' }) // First day is Monday
+    expect(wrapper.find('.vl-calendar-month__day').classes()).to.include('vl-calendar-month__day--offset-1')
   })
   
   it('date string is emitted after click on day', () => {

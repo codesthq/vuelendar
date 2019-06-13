@@ -7,12 +7,14 @@
     :show-weeks-number="showWeeksNumber"
     :default-date="defaultDate"
     :single-month="singleMonth"
+    :first-day-of-week="firstDayOfWeek"
     ref="calendar"
   />
 </template>
 
 <script>
 import VlCalendar from './vl-calendar'
+import { DAYS_SHORTCUTS } from '../constants/days'
 
 export default {
   name: 'VlRangeSelector',
@@ -31,7 +33,12 @@ export default {
     disabledDates: Object,
     isDisabled: Function,
     singleMonth: Boolean,
-    enableSingleDate: Boolean
+    enableSingleDate: Boolean,
+    firstDayOfWeek: {
+      type: String,
+      validator: v =>  DAYS_SHORTCUTS.includes(v),
+      default: 'mon'
+    }
   },
 
   methods: {
