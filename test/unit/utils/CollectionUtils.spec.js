@@ -10,3 +10,9 @@ describe('CollectionUtils.createRange', () => {
     expect(CollectionUtils.createRange(1, 1)).to.deep.equal([1])
   })
 })
+
+describe('CollectionUtils.transpose', () => {
+  it('returns transposed array', () => {
+    expect(CollectionUtils.transpose([1, 2, 3, 4, 5, 6, 7], 2)).to.deep.equal([3, 4, 5, 6, 7, 1, 2])
+  })
+})

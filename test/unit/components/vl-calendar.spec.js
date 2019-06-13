@@ -25,14 +25,16 @@ describe('vl-calendar', () => {
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }, {
       month: 0,
       year: 2020,
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }])
   })
   
@@ -55,14 +57,16 @@ describe('vl-calendar', () => {
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }, {
       month: 1,
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }])
   })
   
@@ -78,14 +82,16 @@ describe('vl-calendar', () => {
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }, {
       month: 1,
       year: 2019,
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }])
   })
   
@@ -101,14 +107,16 @@ describe('vl-calendar', () => {
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }, {
       month: 11,
       year: 2018,
       isSelected: undefined,
       isDisabled: undefined,
       customClasses: undefined,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }])
   })
   
@@ -126,14 +134,16 @@ describe('vl-calendar', () => {
       isDisabled,
       isSelected,
       customClasses,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }, {
       month: 1,
       year: 2019,
       isDisabled,
       isSelected,
       customClasses,
-      showWeeksNumber: false
+      showWeeksNumber: false,
+      firstDayOfWeek: 'mon'
     }])
   })
   
@@ -153,6 +163,11 @@ describe('vl-calendar', () => {
   
     mountComponent({ showWeeksNumber: true })
     expect(wrapper.find(VlCalendarMonth).props('showWeeksNumber')).to.be.true
+  })
+  
+  it('firstDayOfWeek property is propagated down', () => {
+    mountComponent({ firstDayOfWeek: 'mon' })
+    expect(wrapper.find(VlCalendarMonth).props('firstDayOfWeek')).to.equal('mon')
   })
   
   it('single month is rendered on demand', () => {

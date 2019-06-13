@@ -18,6 +18,7 @@
       :is-disabled="isDisabled"
       :custom-classes="customClasses"
       :show-weeks-number="showWeeksNumber"
+      :first-day-of-week="firstDayOfWeek"
       @input="date => $emit('input', date)"
     />
 
@@ -30,6 +31,7 @@
       :is-disabled="isDisabled"
       :custom-classes="customClasses"
       :show-weeks-number="showWeeksNumber"
+      :first-day-of-week="firstDayOfWeek"
       @input="date => $emit('input', date)"
     />
   </div>
@@ -38,6 +40,7 @@
 <script>
 import VlCalendarMonth from './vl-calendar-month'
 import * as DatesUtils from '../utils/DatesUtils'
+import { DAYS_SHORTCUTS } from '../constants/days'
 
 export default {
   name: 'VlCalendar',
@@ -51,7 +54,12 @@ export default {
     customClasses: Object,
     showWeeksNumber: Boolean,
     singleMonth: Boolean,
-    defaultDate: String
+    defaultDate: String,
+    firstDayOfWeek: {
+      type: String,
+      validator: v =>  DAYS_SHORTCUTS.includes(v),
+      default: 'mon'
+    }
   },
 
   data () {

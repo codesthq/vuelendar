@@ -20,27 +20,11 @@
 
       <div>
         <div class="vl-flex">
-          <span class="vl-calendar-month__week-day">
-            Mon
-          </span>
-          <span class="vl-calendar-month__week-day">
-            Tue
-          </span>
-          <span class="vl-calendar-month__week-day">
-            Wed
-          </span>
-          <span class="vl-calendar-month__week-day">
-            Thu
-          </span>
-          <span class="vl-calendar-month__week-day">
-            Fri
-          </span>
-          <span class="vl-calendar-month__week-day">
-            Sat
-          </span>
-          <span class="vl-calendar-month__week-day">
-            Sun
-          </span>
+          <span
+            v-for="name in daysNames"
+            :key="name"
+            class="vl-calendar-month__week-day"
+          >{{ name }}</span>
         </div>
 
         <div class="vl-flex vl-flex-wrap">
@@ -63,8 +47,9 @@
 </template>
 
 <script>
-import { createRange } from '../utils/CollectionUtils'
+import { createRange, transpose } from '../utils/CollectionUtils'
 import { countDays, formatDate, getMonthName, getWeekNumbers } from '../utils/DatesUtils'
+import { DAYS_NAMES, DAYS_SHORTCUTS } from '../constants/days'
 
 export default {
   name: 'VlCalendarMonth',
@@ -74,7 +59,12 @@ export default {
     year: Number,
     isSelected: Function,
     isDisabled: Function,
-    customClasses: Object
+    customClasses: Object,
+    firstDayOfWeek: {
+      type: String,
+      validator: v =>  DAYS_SHORTCUTS.includes(v),
+      default: 'mon'
+    }
   },
 
   computed: {
@@ -84,6 +74,14 @@ export default {
 
     days () {
       return createRange(1, countDays(this.month, this.year))
+    },
+
+    daysNames () {
+      return transpose(DAYS_NAMES, this.daysOffset)
+    },
+
+    daysOffset () {
+      return DAYS_SHORTCUTS.indexOf(this.firstDayOfWeek)
     },
 
     weekNumbers () {
@@ -99,7 +97,7 @@ export default {
     calculateClasses (day) {
       const classes = []
       if (day === 1) {
-        let offset = (new Date(this.year, this.month, 1).getDay() + 6) % 7
+        let offset = (new Date(this.year, this.month, 1).getDay() + 7 - this.daysOffset) % 7
         if (offset > 0) {
           classes.push(`vl-calendar-month__day--offset-${offset}`)
         }
