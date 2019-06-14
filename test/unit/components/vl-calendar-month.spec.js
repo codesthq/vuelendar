@@ -96,16 +96,15 @@ describe('vl-calendar-month', () => {
     })
   
     const days = wrapper.findAll('.vl-calendar-month__day').wrappers
-    days.slice(0, 19).forEach(w => {
-      expect(w.classes()).to.include('selected')
-    })
+    days.slice(0, 19).forEach(w => expect(w.classes()).to.include('selected'))
     
     expect(days[0].classes()).to.include('selected--first')
     expect(days[18].classes()).to.include('selected--last')
   
-    wrapper.findAll('.vl-calendar-month__day').wrappers.slice(20).forEach(w => {
-      expect(w.classes()).to.not.include('selected')
-    })
+    wrapper
+      .findAll('.vl-calendar-month__day').wrappers
+      .slice(20)
+      .forEach(w => expect(w.classes()).to.not.include('selected'))
   })
   
   it('day may be disabled base on passed isDisabled callback', () => {
@@ -117,16 +116,12 @@ describe('vl-calendar-month', () => {
   
     const days = wrapper.findAll('.vl-calendar-month__day').wrappers
   
-    days.slice(0, 20).forEach(w => {
-      expect(w.classes()).to.include('disabled')
-    })
+    days.slice(0, 20).forEach(w => expect(w.classes()).to.include('disabled'))
   
     expect(days[0].classes()).to.include('disabled--first')
     expect(days[19].classes()).to.include('disabled--last')
   
-    days.slice(21).forEach(w => {
-      expect(w.classes()).to.not.include('disabled')
-    })
+    days.slice(21).forEach(w => expect(w.classes()).to.not.include('disabled'))
   })
   
   it('weeks numbers are displayed on demand', () => {
@@ -145,12 +140,7 @@ describe('vl-calendar-month', () => {
   
     const days = wrapper.findAll('.vl-calendar-month__day').wrappers
     
-    days.slice(0, 20).forEach(w => {
-      expect(w.classes()).to.include('is-processing')
-    })
-  
-    days.slice(21).forEach(w => {
-      expect(w.classes()).to.not.include('is-processing')
-    })
+    days.slice(0, 20).forEach(w => expect(w.classes()).to.include('is-processing'))
+    days.slice(21).forEach(w => expect(w.classes()).to.not.include('is-processing'))
   })
 })

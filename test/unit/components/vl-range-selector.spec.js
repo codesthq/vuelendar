@@ -17,19 +17,19 @@ describe('vl-range-selector', () => {
   it('emits appropriate events', () => {
     mountComponent()
     wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2018-02-05')
-    expect(wrapper.emitted().focus).to.have.lengthOf(1)
+    expect(wrapper.emitted('focus')).to.have.lengthOf(1)
     expect(wrapper.emitted('update:startDate')).to.deep.equal([['2018-02-05']])
     expect(wrapper.emitted('update:endDate')).to.deep.equal(undefined)
   
     mountComponent({ startDate: '2018-02-01', endDate: '2018-02-06' })
     wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2018-02-05')
-    expect(wrapper.emitted().focus).to.have.lengthOf(1)
+    expect(wrapper.emitted('focus')).to.have.lengthOf(1)
     expect(wrapper.emitted('update:startDate')).to.deep.equal([['2018-02-05']])
     expect(wrapper.emitted('update:endDate')).to.deep.equal([[null]])
   
     mountComponent({ startDate: '2018-02-01' })
     wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2018-02-05')
-    expect(wrapper.emitted().focus).to.have.lengthOf(1)
+    expect(wrapper.emitted('focus')).to.have.lengthOf(1)
     expect(wrapper.emitted('update:startDate')).to.deep.equal(undefined)
     expect(wrapper.emitted('update:endDate')).to.deep.equal([['2018-02-05']])
   })
@@ -122,15 +122,19 @@ describe('vl-range-selector', () => {
   
   it('appropriate properties are propagated down', () => {
     mountComponent()
-    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.false
-    expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.be.undefined
-    expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.be.false
-    expect(wrapper.find({ ref: 'calendar' }).props().firstDayOfWeek).to.equal('mon')
+    expect(wrapper.find({ ref: 'calendar' }).props()).to.deep.include({
+      showWeeksNumber: false,
+      defaultDate: undefined,
+      singleMonth: false,
+      firstDayOfWeek: 'mon'
+    })
     
     mountComponent({ showWeeksNumber: true, defaultDate: '2019-01-03', singleMonth: true, firstDayOfWeek: 'tue' })
-    expect(wrapper.find({ ref: 'calendar' }).props().showWeeksNumber).to.be.true
-    expect(wrapper.find({ ref: 'calendar' }).props().defaultDate).to.equal('2019-01-03')
-    expect(wrapper.find({ ref: 'calendar' }).props().singleMonth).to.be.true
-    expect(wrapper.find({ ref: 'calendar' }).props().firstDayOfWeek).to.equal('tue')
+    expect(wrapper.find({ ref: 'calendar' }).props()).to.deep.include({
+      showWeeksNumber: true,
+      defaultDate: '2019-01-03',
+      singleMonth: true,
+      firstDayOfWeek: 'tue'
+    })
   })
 })

@@ -150,9 +150,7 @@ describe('vl-calendar', () => {
   it('propagate input event from children', () => {
     mountComponent()
     
-    wrapper.findAll(VlCalendarMonth).wrappers.forEach(w => {
-      w.vm.$emit('input', '2019-02-13')
-    })
+    wrapper.findAll(VlCalendarMonth).wrappers.forEach(w => w.vm.$emit('input', '2019-02-13'))
     
     expect(wrapper.emitted('input')).to.deep.equal([['2019-02-13'], ['2019-02-13']])
   })

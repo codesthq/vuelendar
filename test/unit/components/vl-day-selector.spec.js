@@ -35,7 +35,7 @@ describe('vl-day-selector', () => {
     wrapper.find({ ref: 'calendar' }).vm.$emit('input', '2018-05-05')
 
     expect(wrapper.emitted('input')).to.deep.equal([['2018-02-05'], ['2018-03-05'], ['2018-01-05'], ['2018-05-05']])
-    expect(wrapper.emitted().focus).to.have.lengthOf(4)
+    expect(wrapper.emitted('focus')).to.have.lengthOf(4)
   })
 
   it('selected date is marked', () => {
