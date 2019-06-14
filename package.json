@@ -21,7 +21,8 @@
   "files": [
     "components/**/*.*",
     "scss/**/*.*",
-    "utils/**/*.*"
+    "utils/**/*.*",
+    "constants/**/*.*"
   ],
   "homepage": "https://github.com/codesthq/vuelendar#readme",
   "devDependencies": {
