@@ -53,13 +53,13 @@ describe('vl-range-selector', () => {
   })
   
   it('it is possible to limit available dates on calendar', () => {
-    mountComponent({ disabledDates: { from: '2019-01-15' } })
+    mountComponent({ isDisabled: date => date >= '2019-01-15' })
     let isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
     expect(isDisabled('2019-01-14')).to.be.false
     expect(isDisabled('2019-01-15')).to.be.true
     expect(isDisabled('2019-01-16')).to.be.true
   
-    mountComponent({ disabledDates: { to: '2019-01-15' } })
+    mountComponent({ isDisabled: date => date <= '2019-01-15' })
     isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
     expect(isDisabled('2019-01-14')).to.be.true
     expect(isDisabled('2019-01-15')).to.be.true

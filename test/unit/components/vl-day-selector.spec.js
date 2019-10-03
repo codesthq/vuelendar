@@ -47,59 +47,17 @@ describe('vl-day-selector', () => {
     expect(isSelected('2018-02-16')).to.be.false
   })
 
-  it('disable dates when giving an array of disabled dates', () => {
-    mountComponent({ disabledDates: ['2018-02-15', '2018-02-19'] })
-
-    const isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
-
-
-    expect(isDisabled('2018-02-15')).to.be.true
-    expect(isDisabled('2018-02-19')).to.be.true
-    expect(isDisabled('2019-01-29')).to.be.false
-    expect(isDisabled('2020-01-26')).to.be.false
-  })
-
   it('disable dates when giving a full object of disabled dates', () => {
-    mountComponent({ disabledDates: {
-      from: '2018-02-15',
-      to: '2018-02-17'
-    } })
+    mountComponent({ isDisabled: date => date >= '2018-02-15' && date <= '2018-02-17' })
 
     const isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
+    expect(isDisabled('2018-02-13')).to.be.false
+    expect(isDisabled('2018-02-14')).to.be.false
     expect(isDisabled('2018-02-15')).to.be.true
     expect(isDisabled('2018-02-16')).to.be.true
     expect(isDisabled('2018-02-17')).to.be.true
     expect(isDisabled('2018-02-18')).to.be.false
     expect(isDisabled('2018-02-19')).to.be.false
-  })
-
-
-  it('disable dates when giving a partial object of disabled dates', () => {
-    mountComponent({ disabledDates: {
-      from: '2018-02-15',
-    } })
-
-    const isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
-    expect(isDisabled('2018-02-14')).to.be.false
-    expect(isDisabled('2018-02-15')).to.be.true
-    expect(isDisabled('2018-02-16')).to.be.true
-    expect(isDisabled('2018-02-17')).to.be.true
-    expect(isDisabled('2025-02-17')).to.be.true
-    expect(isDisabled('2040-02-17')).to.be.true
-  })
-
-  it('disable dates when giving a different partial object of disabled dates', () => {
-    mountComponent({ disabledDates: {
-      to: '2018-02-15',
-    } })
-
-    const isDisabled = wrapper.find({ ref: 'calendar' }).props().isDisabled
-    expect(isDisabled('2018-02-16')).to.be.false
-    expect(isDisabled('2018-02-15')).to.be.true
-    expect(isDisabled('2018-02-14')).to.be.true
-    expect(isDisabled('2018-02-13')).to.be.true
-    expect(isDisabled('2010-02-13')).to.be.true
-    expect(isDisabled('1990-02-13')).to.be.true
   })
 
   it('"customClasses" property is propagated down', () => {
