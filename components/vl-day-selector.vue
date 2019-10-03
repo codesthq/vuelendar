@@ -2,7 +2,7 @@
   <vl-calendar
     @input="date => emitDate(date)"
     :is-selected="date => date === selectedDate"
-    :is-disabled="disabledDates ? calculateDisabled : isDisabled"
+    :is-disabled="isDisabled"
     :custom-classes="customClasses"
     :show-weeks-number="showWeeksNumber"
     :default-date="defaultDate"
@@ -26,7 +26,6 @@ export default {
   },
   props: {
     selectedDate: String,
-    disabledDates: [Object, Array],
     isDisabled: Function,
     customClasses: Object,
     showWeeksNumber: Boolean,
