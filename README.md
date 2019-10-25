@@ -1,5 +1,5 @@
 # Vuelendar
-Simple and clean calendar written in Vue.js. See it in action [here](https://codesthq.github.io/vuelendar-demo/).
+Simple and clean calendar written in Vue.js. Check out full Vuelendar's documentation [here](https://codesthq.github.io/vuelendar-lp/).
 
 [![CircleCI](https://circleci.com/gh/codesthq/vuelendar/tree/master.svg?style=svg)](https://circleci.com/gh/codesthq/vuelendar/tree/master)
 
